@@ -1,14 +1,63 @@
-@extends('layouts.app')
+@extends('adminlte::page')
+
+@section('title')
+
+@section('content_header')
+    <h1>Solicitudes</h1>
+@stop
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+<div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Nuevas Peticiones</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-striped table-bordered dt-responsive" id="tableSolicitudes">
+                  <thead>
+                    <tr>
+                      <th style="width: 10px">#</th>
+                      <th>Nombre de Usuario</th>
+                      <th>Tipo de Servicio</th>
+                      <th>Pendiente</th>
+                      <th style="width: 40px">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  @foreach($solicitudes as $pos => $solicitud)
+                    <tr>
+                      <td>{{ $solicitud->id }}</td>
+                      <td>{{ $solicitud->name }} {{ $solicitud->lastname1 }} {{ $solicitud->lastname2 }}</td>
+                      <td>{{ $solicitud->tipo_servicio }}</td>
+                      <td>{{ $solicitud->estatus }} </td>
+                      {{--  we will also add show, edit, and delete buttons  --}}
+                      <td>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                      <i class="fas fa-edit"></i>
+                      </button>
+                        
+                        <a class="btn btn-small btn-danger"><i class="fas fa-trash-alt"></i></a>
+                      </td>
+                    </tr>
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            
+            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Default Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    
+                  <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -97,9 +146,56 @@
                             </div>
                         </div>
                     </form>
+
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
                 </div>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+@stop
+
+@section('css')
+    <!--<link rel="stylesheet" href="/css/admin_custom.css">-->
+@stop
+
+@section('js')
+
+
+<script type="text/javascript">
+	$('#tableSolicitudes').DataTable({
+    "aoColumnDefs": [
+            { "sWidth": "80px", "aTargets": [4] },
+    ],
+		language: {
+		 		"sProcessing":     "Procesando...",
+                             "sLengthMenu":     "Mostrar _MENU_ registros",
+                             "sZeroRecords":    "No se encontraron resultados",
+                             "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                             "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                             "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                             "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                             "sInfoPostFix":    "",
+                             "sSearch":         "Buscar:",
+                             "sUrl":            "",
+                             "sInfoThousands":  ",",
+                             "sLoadingRecords": "Cargando...",
+                             "oPaginate": {
+                                 "sFirst":    "Primero",
+                                 "sLast":     "Último",
+                                 "sNext":     "Siguiente",
+                                 "sPrevious": "Anterior"
+                             },
+                             "oAria": {
+                                 "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                 "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                             }
+        }
+   	});
+</script>
+
+@stop

@@ -252,11 +252,11 @@ return [
             'icon'        => 'fas fa-home',
         ],
         [
-            'text'        => 'Solicitudes',
-            'url'         => 'admin/solicitudes',
+            'text'        => 'Solicitudes2',
+            'route'       => 'solicitudes.index',
             'icon'        => 'fas fa-file',
-            'label'       => 4,
-            'label_color' => 'danger',
+            //'label'       => 4,
+            //'label_color' => 'danger',
         ],
         [
             'text'        => 'Usarios',
@@ -355,7 +355,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

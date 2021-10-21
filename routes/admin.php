@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\SolicitudesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,8 @@ Route::get('/solicitudes', [HomeController::class, 'solicitudes']);
 Route::get('/usuarios', [HomeController::class, 'usuarios']);
 Route::get('/configuracion', [HomeController::class, 'configuracion']);
 Route::get('/config/transporte', [HomeController::class, 'configuracion_transporte']);
+
+//Solicitudes
+Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController::class);
+
+

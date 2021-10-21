@@ -18,5 +18,9 @@ class DatabaseSeeder extends Seeder
         \App\Models\Role::factory()->count(1)->create(['name' => 'admin']);
         \App\Models\Role::factory()->count(1)->create(['name' => 'rider']);
         \App\Models\Role::factory()->count(1)->create(['name' => 'client']);
+
+        $this->call([
+            Users::class,
+        ]);
     }
 }

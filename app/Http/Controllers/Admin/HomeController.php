@@ -11,10 +11,6 @@ class HomeController extends Controller
         return view('admin.index');
     }
 
-    public function solicitudes() {
-        return view('admin.solicitudes');
-    }
-
     public function usuarios() {
         return view('admin.usuarios');
     }

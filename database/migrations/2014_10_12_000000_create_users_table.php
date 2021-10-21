@@ -24,9 +24,12 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->unsignedInteger('role_id')->default(\App\Models\Role::CLIENT);
             $table->string('name');
+            $table->string('lastname1');
+            $table->string('lastname2');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('estatus')->default('pendiente');
             $table->rememberToken();
             $table->timestamps();
         });
