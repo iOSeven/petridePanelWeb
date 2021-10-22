@@ -11,7 +11,7 @@ class SolicitudesController extends Controller
 {
     public function index(){
 
-        $solicitudes = User::select('id','name', 'lastname1', 'lastname2', 'role_id', 'estatus')
+        $solicitudes = User::select('id','name', 'lastname1', 'lastname2', 'role_id', 'email', 'estatus')
                         ->where('estatus', 'pendiente')
                         ->where('role_id', '>', 1)
                         ->orderBy('id', 'DESC')->get();

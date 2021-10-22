@@ -32,7 +32,16 @@
                       <td>{{ $solicitud->estatus }} </td>
                       {{--  we will also add show, edit, and delete buttons  --}}
                       <td>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                      <button type="button" id="btnmodal" class="btn btn-success" 
+                              data-toggle="modal" 
+                              data-target="#modal-default" 
+                              data-name="{{ $solicitud->name }}"
+                              data-lastname1="{{ $solicitud->lastname1 }}"
+                              data-lastname2="{{ $solicitud->lastname2 }}"
+                              data-email="{{ $solicitud->email }}"
+                              data-tipo="{{ $solicitud->tipo_servicio }}"
+                              data-estatus="{{ $solicitud->estatus }}"
+                      >
                       <i class="fas fa-edit"></i>
                       </button>
                         
@@ -51,7 +60,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h4 class="modal-title">Default Modal</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close bg-red" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
@@ -78,7 +87,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lastname1') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('lastname1') is-invalid @enderror" name="lastname1" value="{{ old('lastname1') }}" required autocomplete="lastname1" autofocus>
+                                <input id="lastname1" type="text" class="form-control @error('lastname1') is-invalid @enderror" name="lastname1" value="{{ old('lastname1') }}" required autocomplete="lastname1" autofocus>
 
                                 @error('lastname1')
                                     <span class="invalid-feedback" role="alert">
@@ -92,7 +101,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lastname2') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('lastname2') is-invalid @enderror" name="lastname2" value="{{ old('lastname2') }}" required autocomplete="lastname2" autofocus>
+                                <input id="lastname2" type="text" class="form-control @error('lastname2') is-invalid @enderror" name="lastname2" value="{{ old('lastname2') }}" required autocomplete="lastname2" autofocus>
 
                                 @error('lastname2')
                                     <span class="invalid-feedback" role="alert">
@@ -131,27 +140,44 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="tipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo" autofocus>
+
+                                @error('tipo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="estatus" class="col-md-4 col-form-label text-md-right">{{ __('Estatus') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="estatus" type="text" class="form-control @error('estatus') is-invalid @enderror" name="estatus" value="{{ old('estatus') }}" required autocomplete="estatus" autofocus>
+
+                                @error('estatus')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn btn-success">
+                                    {{ __('Guardar') }}
                                 </button>
                             </div>
                         </div>
                     </form>
 
                   </div>
-                  <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
+                
                 </div>
                 <!-- /.modal-content -->
               </div>
@@ -168,10 +194,10 @@
 
 <script type="text/javascript">
 	$('#tableSolicitudes').DataTable({
-    "aoColumnDefs": [
-            { "sWidth": "80px", "aTargets": [4] },
-    ],
-		language: {
+      "aoColumnDefs": [
+              { "sWidth": "80px", "aTargets": [4] },
+      ],
+      language: {
 		 		"sProcessing":     "Procesando...",
                              "sLengthMenu":     "Mostrar _MENU_ registros",
                              "sZeroRecords":    "No se encontraron resultados",
@@ -196,6 +222,26 @@
                              }
         }
    	});
+</script>
+
+<script>
+  $(document).ready(function() {
+       $("#btnmodal").click(function() {
+         var nombre = $(this).data('name');
+         var lastname1 = $(this).data('lastname1');
+         var lastname2 = $(this).data('lastname2');
+         var email = $(this).data('email');
+         var tipo = $(this).data('tipo');
+         var estatus = $(this).data('estatus');
+
+         $("#name").val(nombre);
+         $("#lastname1").val(lastname1);
+         $("#lastname2").val(lastname2);
+         $("#email").val(email);
+         $("#tipo").val(tipo);
+         $("#estatus").val(estatus);
+       });
+     });
 </script>
 
 @stop
