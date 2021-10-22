@@ -32,7 +32,7 @@ class SolicitudesController extends Controller
     }
 
     public function update(Request $request, $id){
-        $solicitud = User::findOrFail($request->input('idSolicitud'));
+        $solicitud = User::findOrFail($id);
 
         $solicitud->name = $request->input('name');
         $solicitud->lastname1 = $request->input('lastname1');
