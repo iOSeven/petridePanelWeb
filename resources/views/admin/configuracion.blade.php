@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
                 <a href="http://localhost:8000/admin/config/transporte" class="align-items-center d-flex justify-content-center">
-                    <img src="http://localhost:8000/img/config/transporte.png" style="width: 25%;" alt="">
+                    <img src="{{ asset('/img/config/transporte.png') }}" style="width: 25%;" alt="">
                 </a>
             </div>
 
@@ -26,7 +26,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/paseo.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/paseo.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -38,7 +38,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/hospedaje.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/hospedaje.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -50,7 +50,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/entrenamiento.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/entrenamiento.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -64,7 +64,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/veterinaria.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/veterinaria.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -76,7 +76,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/estetica.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/estetica.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -88,7 +88,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/denuncia.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/denuncia.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -100,7 +100,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/rescate.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/rescate.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -114,7 +114,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/adopcion.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/adopcion.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -126,7 +126,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/tienda.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/tienda.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -138,7 +138,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/blog.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/blog.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">
@@ -150,7 +150,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="http://localhost:8000/img/config/facturacion.png" style="width: 25%;" alt="">
+                <img src="{{ asset('/img/config/facturacion.png') }}" style="width: 25%;" alt="">
             </div>
 
             <div class="card-footer align-self-center">

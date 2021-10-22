@@ -17,7 +17,7 @@
     </div>
 
     <div class="card-body align-items-center d-flex justify-content-center">
-        <img src="http://localhost:8000/img/logo.png" style="width: 35%; height: 35%" alt="">
+        <img src="{{ asset('/img/logo.png') }}" style="width: 35%; height: 35%" alt="">
     </div>
 </div>
 
