@@ -7,17 +7,20 @@ use App\Models\TipoServicioModel;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SolicitudesController extends Controller
 {
     public function index(){
 
-        $solicitudes = User::select('id','name', 'lastname1', 'lastname2', 'role_id', 'email', 'estatus')
-                        ->where('estatus', 'pendiente')
-                        ->where('role_id', '>', 1)
+        $servicios = TipoServicioModel::select('id', 'name')
                         ->orderBy('id', 'DESC')->get();
 
-        $servicios = TipoServicioModel::select('id', 'name')
+        //Bloque de la tabla 1
+        $solicitudes = User::select('id','name', 'lastname1', 'lastname2', 'role_id', 'email', 'estatus')
+                        ->where('estatus', 'Pendiente')
+                        ->orWhere('estatus', 'Rechazado')
+                        ->where('role_id', '>', 1)
                         ->orderBy('id', 'DESC')->get();
                         
         foreach($solicitudes as $solicitud){
@@ -40,7 +43,7 @@ class SolicitudesController extends Controller
         $solicitud->email = $request->input('email');
         
         if(!empty($request->input('password')))
-            $solicitud->password = $request->input('password');
+            $solicitud->password = Hash::make($request->input('password'));
         
         $solicitud->estatus = $request->input('estatus');
         $solicitud->role_id = $request->input('tipo');

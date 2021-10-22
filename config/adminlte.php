@@ -252,15 +252,15 @@ return [
             'icon'        => 'fas fa-home',
         ],
         [
-            'text'        => 'Solicitudes2',
+            'text'        => 'Solicitudes',
             'route'       => 'solicitudes.index',
             'icon'        => 'fas fa-file',
             //'label'       => 4,
             //'label_color' => 'danger',
         ],
         [
-            'text'        => 'Usarios',
-            'url'         => 'admin/usuarios',
+            'text'        => 'Usuarios',
+            'route'         => 'usuarios.index',
             'icon'        => 'fas fa-users',
         ],
         [

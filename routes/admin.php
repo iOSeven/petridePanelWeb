@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SolicitudesController;
+use App\Http\Controllers\Admin\UsuariosController;
 
 
 /*
@@ -25,5 +26,8 @@ Route::get('/config/transporte', [HomeController::class, 'configuracion_transpor
 
 //Solicitudes
 Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController::class);
+
+//Usuarios
+Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);
 
 
