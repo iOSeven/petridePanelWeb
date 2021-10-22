@@ -25,7 +25,7 @@ class Users extends Seeder
 				'email' => 'admin@test.com',
 	            'password' => Hash::make('Petride2021$'),
                 'role_id' => 1,
-                'estatus' => 'aprobado'
+                'estatus' => 'Aprobado'
             ]
         );
     }

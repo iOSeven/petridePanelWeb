@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
     		$table->string('name')->comment('Nombre del rol de usuario');
     		$table->text('description');
     		$table->timestamps();
+            $table->softDeletes();
 	    });
 
         Schema::create('users', function (Blueprint $table) {
@@ -29,9 +30,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('estatus')->default('pendiente');
+            $table->string('estatus')->default('Pendiente');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

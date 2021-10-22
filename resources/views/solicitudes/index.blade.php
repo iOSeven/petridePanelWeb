@@ -7,6 +7,17 @@
 @stop
 
 @section('content')
+
+@if(\Session::has('success'))
+
+<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <h4><i class="icon fa fa-check"></i> Alerta!</h4>
+    {{ \Session::get('success') }}
+</div>
+
+@endif
+
 <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Nuevas Peticiones</h3>
@@ -35,17 +46,25 @@
                       <button type="button" id="btnmodal" class="btn btn-success" 
                               data-toggle="modal" 
                               data-target="#modal-default" 
+                              data-idsolicitud="{{ $solicitud->id }}"
                               data-name="{{ $solicitud->name }}"
                               data-lastname1="{{ $solicitud->lastname1 }}"
                               data-lastname2="{{ $solicitud->lastname2 }}"
                               data-email="{{ $solicitud->email }}"
-                              data-tipo="{{ $solicitud->tipo_servicio }}"
+                              data-tipo="{{ $solicitud->id_tipo_servicio }}"
                               data-estatus="{{ $solicitud->estatus }}"
                       >
                       <i class="fas fa-edit"></i>
                       </button>
-                        
-                        <a class="btn btn-small btn-danger"><i class="fas fa-trash-alt"></i></a>
+                      
+                      <form action="{{ route('solicitudes.destroy', $solicitud->id) }}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                          <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                          </button>
+                      </form>
+
                       </td>
                     </tr>
                   @endforeach
@@ -59,15 +78,29 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title">Default Modal</h4>
+                    <h4 class="modal-title">SOLICITID No. <label id="numero" name="numero"></label></h4>
                     <button type="button" class="close bg-red" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
                   <div class="modal-body">
                     
-                  <form method="POST" action="{{ route('register') }}">
+                  <form id="myForm" name="myForm" method="POST" action="{{ route('solicitudes.update', 'SOL_ID') }}">
                         @csrf
+
+                        <div class="form-group row" style="display:none">
+                            <label for="idSolicitud" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="idSolicitud" type="text" class="form-control @error('idSolicitud') is-invalid @enderror" name="idSolicitud" value="{{ old('idSolicitud') }}" required autocomplete="idSolicitud" autofocus>
+
+                                @error('idSolicitud')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -129,7 +162,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -140,37 +173,34 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="tipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
-
+                          <label for="tipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
                             <div class="col-md-6">
-                                <input id="tipo" type="text" class="form-control @error('tipo') is-invalid @enderror" name="tipo" value="{{ old('tipo') }}" required autocomplete="tipo" autofocus>
-
-                                @error('tipo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <select class="form-control" id="tipo" name="tipo" required>
+                                    <option value="">Seleccione tipo de servicio</option>
+                                    @foreach($servicios as $pos => $servicio)
+                                        <option value="{{ $servicio->id }}">{{ $servicio->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="estatus" class="col-md-4 col-form-label text-md-right">{{ __('Estatus') }}</label>
-
+                          <label for="estatus" class="col-md-4 col-form-label text-md-right">{{ __('Estatus') }}</label>
                             <div class="col-md-6">
-                                <input id="estatus" type="text" class="form-control @error('estatus') is-invalid @enderror" name="estatus" value="{{ old('estatus') }}" required autocomplete="estatus" autofocus>
-
-                                @error('estatus')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <select class="form-control" id="estatus" name="estatus" required>
+                                    <option value="">Seleccione tipo de estatus</option>
+                                      <option value="Aprobado">Aprobado</option>
+                                      <option value="Pendiente">Pendiente</option>
+                                      <option value="Rechazado">Rechazado</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                              {{ method_field('PUT') }}
                                 <button type="submit" class="btn btn-success">
-                                    {{ __('Guardar') }}
+                                    {{ __('Actualizar') }}
                                 </button>
                             </div>
                         </div>
@@ -182,7 +212,7 @@
                 <!-- /.modal-content -->
               </div>
               <!-- /.modal-dialog -->
-            </div>
+</div>
 @stop
 
 @section('css')
@@ -227,6 +257,7 @@
 <script>
   $(document).ready(function() {
        $("#btnmodal").click(function() {
+         var id = $(this).data('idsolicitud');
          var nombre = $(this).data('name');
          var lastname1 = $(this).data('lastname1');
          var lastname2 = $(this).data('lastname2');
@@ -234,14 +265,22 @@
          var tipo = $(this).data('tipo');
          var estatus = $(this).data('estatus');
 
+         $("#numero").text(id);
+         $("#idSolicitud").val(id);
          $("#name").val(nombre);
          $("#lastname1").val(lastname1);
          $("#lastname2").val(lastname2);
          $("#email").val(email);
-         $("#tipo").val(tipo);
-         $("#estatus").val(estatus);
+         $('#tipo > option[value="'+tipo+'"]').attr('selected', 'selected');
+         $('#estatus > option[value="'+estatus+'"]').attr('selected', 'selected');
        });
-     });
+  });
+
+  window.setTimeout(function() {
+      $(".alert-message").fadeTo(500, 0).slideUp(500, function(){
+          $(this).remove(); 
+      });
+  }, 5000);
 </script>
 
 @stop
