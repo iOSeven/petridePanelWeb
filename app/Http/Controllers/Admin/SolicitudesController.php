@@ -16,7 +16,6 @@ class SolicitudesController extends Controller
         $servicios = TipoServicioModel::select('id', 'name')
                         ->orderBy('id', 'DESC')->get();
 
-        //Bloque de la tabla 1
         $solicitudes = User::select('id','name', 'lastname1', 'lastname2', 'role_id', 'email', 'estatus')
                         ->where('estatus', 'Pendiente')
                         ->orWhere('estatus', 'Rechazado')
@@ -55,7 +54,6 @@ class SolicitudesController extends Controller
 
     public function destroy($id)
     {
-        //User::destroy($id);
         $user = User::find($id)->delete();
 
         return redirect('admin/solicitudes')->with('success', 'Datos borrados');

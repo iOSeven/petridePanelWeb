@@ -16,9 +16,6 @@ class AccessApiController extends Controller
                 if(!is_null($user)) {
                     $checkPass = \Hash::check($pass, $user->password);
                     if ($checkPass) {
-
-                        //dd($user);
-                         
                         $flag['status'] = $checkPass;
                         $flag['msg'] = "Usuario Valido";
                         $flag['id_user'] = $user->id;
