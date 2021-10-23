@@ -144,7 +144,7 @@
                         </tr>
 
                       @include('usuarios.modals.deleteCliente')
-                      @include('usuarios.modals.editcliente')
+                      @include('usuarios.modals.editCliente')
 
                     @endforeach
                 </tbody>
