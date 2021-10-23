@@ -12,7 +12,7 @@
     <div class="col-md-3">
         <div class="card">
             <div class="card-body align-items-center d-flex justify-content-center">
-                <a href="http://localhost:8000/admin/config/transporte" class="align-items-center d-flex justify-content-center">
+                <a href="{{ asset('/admin/config/transporte') }}" class="align-items-center d-flex justify-content-center">
                     <img src="{{ asset('/img/config/transporte.png') }}" style="width: 25%;" alt="">
                 </a>
             </div>
