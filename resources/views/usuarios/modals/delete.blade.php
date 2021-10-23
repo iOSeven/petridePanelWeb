@@ -1,6 +1,4 @@
-<form action="{{ route('usuarios.destroy', $socio->id) }}" method="POST">
-    @csrf
-    @method("delete")
+
 
     <div class="modal fade" id="deleteConfirmationAprobado{{ $socio->id }}" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -15,10 +13,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Aceptar</button>
+                    <form action="{{ route('usuarios.destroy', $socio->id) }}" method="POST">
+                        @csrf
+                        @method("delete")
+                        <button type="submit" class="btn btn-danger">Aceptar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
-</form>
