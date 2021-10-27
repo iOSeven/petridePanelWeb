@@ -254,14 +254,19 @@ return [
         [
             'text'        => 'Solicitudes',
             'route'       => 'solicitudes.index',
-            'icon'        => 'fas fa-file',
+            'icon'        => 'fas fa-user-plus',
             //'label'       => 4,
             //'label_color' => 'danger',
         ],
         [
             'text'        => 'Usuarios',
-            'route'         => 'usuarios.index',
+            'route'       => 'usuarios.index',
             'icon'        => 'fas fa-users',
+        ],
+        [
+            'text'        => 'Facturas',
+            'route'       => 'facturas.index',
+            'icon'        => 'fas fa-file',
         ],
         [
             'text'        => 'Configuración',

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SolicitudesController;
 use App\Http\Controllers\Admin\UsuariosController;
+use App\Http\Controllers\Admin\FacturacionController;
 
 
 /*
@@ -29,5 +30,8 @@ Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController
 
 //Usuarios
 Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);
+
+//Facturacion
+Route::resource('/facturas', App\Http\Controllers\Admin\FacturacionController::class);
 
 
