@@ -12,4 +12,6 @@ class Role extends Model
     const ADMIN = 1;
 	const RIDER = 2;
 	const CLIENT = 3;
+
+    
 }

@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Models\Role;
+use App\Models\TipoServicioModel;
 
 class User extends Authenticatable
 {
@@ -42,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role () {
-    	return $this->belongsTo(Role::class);
+    public function role() {
+    	return $this->belongsTo(TipoServicioModel::class, 'role_id', 'id');
     }
 }
