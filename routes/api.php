@@ -22,4 +22,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/checklogin/{u}/{p}', [AccessApiController::class, 'checklogin']);
+Route::get('/adduser/{n}/{l1}/{l2}/{e}/{p}/{r}', [AccessApiController::class, 'adduser']);
 //Route::middleware('auth:api')->get('/checklogin/{u}/{p}', 'ApiController\LoginApiController@checklogin');
