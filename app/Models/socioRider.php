@@ -12,6 +12,32 @@ class socioRider extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id'
+        'user_id',
+        'FechaNacimiento',
+        'Sexo',
+        'Domicilio',
+        'Colonia',
+        'CodigoPostal',
+        'Estado',
+        'Celular',
+        'EstadoCivil',
+        'NivelEstudios',
+        'SituacionLaboral',
+        'FotoIdentificacion',
+        'FotoSeguroCobertura',
+        'FotoConstanciaFiscal',
+        'FotoPerfil',
+        'NoCuenta',
+        'CLABE',
+        'CER',
+        'KEY',
+        'Password',
+        'TipoAutomovil',
+        'Placas',
+        'ColorAutomovil',
+        'PolizaSeguro',
+        'VigenciaSeguro',
+        'LicenciaConducir',
+        'VigenciaLicencia',            
     ];
 }

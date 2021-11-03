@@ -51,6 +51,7 @@
                                 <button type="button" id="btnmodal" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationAprobado{{ $socio->id }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
+
                             </td>
                         </tr>
 
@@ -97,6 +98,10 @@
                                 <button type="button" id="btnmodal" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationUsuario{{ $usuario->id }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
+
+                                <a href="{{ route('complementos.edit', $usuario->id) }}" id="btnmoreinfo" class="btn btn-primary">
+                                    <i class="fas fa-database"></i>
+                                </a>
                             </td>
                         </tr>
 

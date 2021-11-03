@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SolicitudesController;
 use App\Http\Controllers\Admin\UsuariosController;
 use App\Http\Controllers\Admin\FacturacionController;
+use App\Http\Controllers\Admin\SocioRiderController;
 
 
 /*
@@ -30,8 +31,7 @@ Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController
 
 //Usuarios
 Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);
+Route::resource('/complementos', App\Http\Controllers\Admin\SocioRiderController::class);
 
 //Facturacion
 Route::resource('/facturas', App\Http\Controllers\Admin\FacturacionController::class);
-
-
