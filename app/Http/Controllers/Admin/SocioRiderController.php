@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use App\Models\socioRider;
+use App\Models\Transportadoras;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -61,8 +62,9 @@ class SocioRiderController extends Controller
     public function edit($id)
     {
         $user_info = socioRider::where('user_id', $id)->get();
+        $user_transportadora = Transportadoras::where('user_id', $id)->get();
 
-        return view('usuarios.more_info', compact('user_info'));
+        return view('usuarios.more_info', compact(['user_info', 'user_transportadora']));
     }
 
     /**
@@ -107,6 +109,19 @@ class SocioRiderController extends Controller
 
         //return redirect('admin/usuarios')->with('success', 'Datos actualizados');
         return $this->edit($user_info->user_id);
+    }
+
+    public function update_transportadora(Request $request, $id)
+    {
+        $user_transportadora = Transportadoras::findOrFail($id);
+
+        $user_transportadora->TipoTransportadora = $request->input('TipoTransportadora');
+        $user_transportadora->PlacasTransportadora = $request->input('PlacasTransportadora');
+
+        $user_transportadora->save();
+
+        //return redirect('admin/usuarios')->with('success', 'Datos actualizados');
+        return $this->edit($user_transportadora->user_id);
     }
 
     /**

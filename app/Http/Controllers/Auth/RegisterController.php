@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\socioRider;
+use App\Models\Transportadoras;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -74,6 +75,10 @@ class RegisterController extends Controller
         ]);
 
         $user_data = socioRider::create([
+            'user_id' => $user->id,
+        ]);
+
+        $user_transportadora = Transportadoras::create([
             'user_id' => $user->id,
         ]);
 

@@ -31,6 +31,7 @@ Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController
 
 //Usuarios
 Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);
+Route::put('/update_transportadora/{id}', [App\Http\Controllers\Admin\SocioRiderController::class, 'update_transportadora'])->name('complementos.update_transportadora');
 Route::resource('/complementos', App\Http\Controllers\Admin\SocioRiderController::class);
 
 //Facturacion
