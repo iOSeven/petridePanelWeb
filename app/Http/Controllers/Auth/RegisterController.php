@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\socioRider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -70,6 +71,10 @@ class RegisterController extends Controller
             'lastname2' => $data['lastname2'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+        ]);
+
+        $user_data = socioRider::create([
+            'user_id' => $user->id,
         ]);
 
         $user->createAsStripeCustomer();

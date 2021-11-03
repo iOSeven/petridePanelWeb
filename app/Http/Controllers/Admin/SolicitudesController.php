@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\socioRider;
 use App\Models\TipoServicioModel;
 
 use App\Http\Controllers\Controller;
@@ -55,6 +56,7 @@ class SolicitudesController extends Controller
     public function destroy($id)
     {
         $user = User::find($id)->delete();
+        $data_user = socioRider::where('user_id', $id)->delete();
 
         return redirect('admin/solicitudes')->with('success', 'Datos borrados');
     }

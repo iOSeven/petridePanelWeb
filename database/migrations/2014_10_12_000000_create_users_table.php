@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
 	    });
 
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('role_id')->default(\App\Models\Role::CLIENT);
             $table->string('name');
             $table->string('lastname1');
