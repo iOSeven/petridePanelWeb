@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 class BillingController extends Controller
 {
     public function index(){
+
+        $paymentsMethods = auth()->user()->paymentMethods();
+
         return view('facturas.index', [
-            'intent' => auth()->user()->createSetupIntent()
+            'intent' => auth()->user()->createSetupIntent(),
+            'paymentsMethods' => $paymentsMethods
         ]);
     }
 
@@ -19,7 +23,6 @@ class BillingController extends Controller
 
         auth()->user()->addPaymentMethod($paymentMethod);
 
-        // El método json establecerá automáticamente el encabezado 'Content-Type' en 'application/json', así como también convertirá el array dado a JSON
-        return response()->json(['data' => 'Metodo Agregado']);
+        return $this->index();
     }
 }

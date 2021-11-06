@@ -60,6 +60,22 @@
         </div>
     </div>
 
+    <div class="card">
+        <div class="bg-gray-50">
+            <h1>Metodos de pago agregados</h1>
+        </div>
+        @if(!empty($paymentsMethods))
+            <div class="card-body">
+                @foreach($paymentsMethods as $paymentsMethod)
+                    <article class="text-sm text-gray">
+                        <h5><span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> xxxx-{{ $paymentsMethod->card->last4 }}</h1>
+                        <p>Expira {{ $paymentsMethod->card->exp_month}} / {{ $paymentsMethod->card->exp_year}}</p>
+                    </article>
+                @endforeach
+            </div>
+        @endif
+    </div>
+
 @stop
 
 @section('css')
@@ -70,7 +86,7 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-    const stripe = Stripe('pk_test_51JpFBKJK307EntAyYhS0TwdkWbFO4I2Ln9NnHVjJAVsVGKKO4d7V3wqXssEC9Ap5F3RtNzF04NU7wygzvU2EDC6P0021Xw777W');
+    const stripe = Stripe("{{ env('STRIPE_KEY') }}");
 
     const elements = stripe.elements();
     const cardElement = elements.create('card');
