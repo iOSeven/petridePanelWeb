@@ -265,7 +265,7 @@ return [
         ],
         [
             'text'        => 'Facturas',
-            'route'       => 'facturas.index',
+            'route'       => 'billing.index',
             'icon'        => 'fas fa-file',
         ],
         [

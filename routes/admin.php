@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SolicitudesController;
 use App\Http\Controllers\Admin\UsuariosController;
 use App\Http\Controllers\Admin\FacturacionController;
 use App\Http\Controllers\Admin\SocioRiderController;
+use App\Http\Controllers\BillingController;
 
 
 /*
@@ -28,6 +29,10 @@ Route::get('/config/transporte', [HomeController::class, 'configuracion_transpor
 
 //Solicitudes
 Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController::class);
+
+//Facturacion
+Route::get('/billing', [BillingController::class, 'index'])->name('billing.index');
+Route::post('/paymentmethod', [BillingController::class, 'paymentmethod'])->name('paymentmethod.create');
 
 //Usuarios
 Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);

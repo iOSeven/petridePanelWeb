@@ -24,34 +24,39 @@
         </div>
 
         <div class="card-body">
-            <table class="table table-striped table-bordered dt-responsive" id="tableFacturas">
-                <thead>
-                    <tr>
-                        <th style="width: 10px">#</th>
-                        <th style="width: 40px">Acciones</th>
-                    </tr>
-                </thead>
 
-                <tbody>
-                    @foreach($facturas as $pos => $factura)
-                        <tr>
-                            <td>{{ $factura->id }}</td>
-                            <td>
-                                <button type="button" id="btnmodal" class="btn btn-success" data-toggle="modal" data-target="#modal-default{{ $factura->id }}">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <button type="button" id="btnmodal" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmation{{ $factura->id }}">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
+            <article class="card">
+                <form action="{{ route('paymentmethod.create') }}" method="post" id="cardForm">
+                    @csrf  
+                    <div class="card-body">
 
-                        <!-- @include('solicitudes.modals.delete')
-                        @include('solicitudes.modals.edit') -->
+                        <h1>Agregar metodo de pago</h1>
 
-                    @endforeach
-                </tbody>
-            </table>
+                        <div class="row">
+                            <p>Informacion de tarjeta</p>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <input class="form-control" id="card-holder-name" type="text" placeholder="Nombre del titular" required>
+                                </div>
+                                
+                                <!-- Stripe Elements Placeholder -->
+                                <div>
+                                    <div class="form-control" id="card-element"></div>
+                                    <span id="cardErrors"></span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bd-gray justify-end">
+                        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">
+                            Update Payment Method
+                        </button>
+                    </div>
+                
+                </form>
+            </article>
+            
         </div>
     </div>
 
@@ -62,34 +67,56 @@
 @stop
 
 @section('js')
+<script src="https://js.stripe.com/v3/"></script>
 
-    <script type="text/javascript">
-        $('#tableFacturas').DataTable({
-            language: {
-                "sProcessing":     "Procesando...",
-                "sLengthMenu":     "Mostrar _MENU_ registros",
-                "sZeroRecords":    "No se encontraron resultados",
-                "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                "sInfoPostFix":    "",
-                "sSearch":         "Buscar:",
-                "sUrl":            "",
-                "sInfoThousands":  ",",
-                "sLoadingRecords": "Cargando...",
-                "oPaginate": {
-                    "sFirst":    "Primero",
-                    "sLast":     "Último",
-                    "sNext":     "Siguiente",
-                    "sPrevious": "Anterior"
-                },
-                "oAria": {
-                    "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+<script>
+    const stripe = Stripe('pk_test_51JpFBKJK307EntAyYhS0TwdkWbFO4I2Ln9NnHVjJAVsVGKKO4d7V3wqXssEC9Ap5F3RtNzF04NU7wygzvU2EDC6P0021Xw777W');
+
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+
+    cardElement.mount('#card-element');
+
+    //Enviar parametros a Stripe
+    const cardHolderName = document.getElementById('card-holder-name');
+    const cardButton = document.getElementById('card-button');
+    const cardForm = document.getElementById('cardForm');
+    const clientSecret = cardButton.dataset.secret;
+
+    cardForm.addEventListener('submit', async (e) => {
+
+        e.preventDefault();
+
+        const { setupIntent, error } = await stripe.confirmCardSetup(
+            clientSecret, {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: { name: cardHolderName.value }
                 }
             }
-        });
-    </script>
+        );
 
+        if (error) {
+            document.getElementById('cardErrors').textContent = error.message;
+        } else {
+            //console.log(setupIntent.payment_method);
+            stripeTokenHandler(setupIntent.payment_method);
+        }
+    });
+
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler(paymentMethod) {
+        // Insert the token ID into the form so it gets submitted to the server
+        var form = document.getElementById('cardForm');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'paymentMethod');
+        hiddenInput.setAttribute('value', paymentMethod);
+        form.appendChild(hiddenInput);
+
+        // Submit the form
+        form.submit();
+    }
+</script>
 @stop
