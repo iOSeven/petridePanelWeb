@@ -68,8 +68,24 @@
             <div class="card-body">
                 @foreach($paymentsMethods as $paymentsMethod)
                     <article class="text-sm text-gray">
-                        <h5><span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> xxxx-{{ $paymentsMethod->card->last4 }}</h1>
-                        <p>Expira {{ $paymentsMethod->card->exp_month}} / {{ $paymentsMethod->card->exp_year}}</p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h5><span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> xxxx-{{ $paymentsMethod->card->last4 }}</h1>
+                                <p>Expira {{ $paymentsMethod->card->exp_month}} / {{ $paymentsMethod->card->exp_year}}</p>
+                            </div>
+
+                            <div>
+                                <form action="{{ route('paymentmethod.delete', $paymentsMethod->id) }}" method="POST">
+                                    @csrf
+                                    @method("POST")
+                                    <button type="submit" class="btn btn-danger">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                                
+                            </div>
+                        </div>
+                        
                     </article>
                 @endforeach
             </div>

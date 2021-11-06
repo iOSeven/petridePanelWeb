@@ -25,4 +25,11 @@ class BillingController extends Controller
 
         return $this->index();
     }
+
+    public function deletepaymentmethod($paymentMethodId) {
+        $paymentMethod = auth()->user()->findPaymentMethod($paymentMethodId);
+        $paymentMethod->delete();
+
+        return $this->index();
+    }
 }

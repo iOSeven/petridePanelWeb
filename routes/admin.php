@@ -33,6 +33,7 @@ Route::resource('/solicitudes', App\Http\Controllers\Admin\SolicitudesController
 //Facturacion
 Route::get('/billing', [BillingController::class, 'index'])->name('billing.index');
 Route::post('/paymentmethod', [BillingController::class, 'paymentmethod'])->name('paymentmethod.create');
+Route::post('/deletepaymentmethod/{id}', [BillingController::class, 'deletepaymentmethod'])->name('paymentmethod.delete');
 
 //Usuarios
 Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);
