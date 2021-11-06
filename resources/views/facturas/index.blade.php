@@ -70,24 +70,50 @@
                     <article class="text-sm text-gray">
                         <div class="d-flex justify-content-between">
                             <div>
-                                <h5><span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> xxxx-{{ $paymentsMethod->card->last4 }}</h1>
+                                <h5>
+                                    <span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> xxxx-{{ $paymentsMethod->card->last4 }}
+                                    @if($paymentsMethod->id == auth()->user()->defaultPaymentMethod()->id)
+                                        (Default)
+                                    @endif
+                                </h1>
+
                                 <p>Expira {{ $paymentsMethod->card->exp_month}} / {{ $paymentsMethod->card->exp_year}}</p>
                             </div>
 
-                            <div>
-                                <form action="{{ route('paymentmethod.delete', $paymentsMethod->id) }}" method="POST">
-                                    @csrf
-                                    @method("POST")
-                                    <button type="submit" class="btn btn-danger">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
+                            <div class="row">
+                                @unless($paymentsMethod->id == auth()->user()->defaultPaymentMethod()->id)
+                                <div>
+                                    <form action="{{ route('paymentmethod.default', $paymentsMethod->id) }}" method="POST">
+                                        @csrf
+                                        @method("POST")
+                                        <button type="submit" class="btn">
+                                            <i class="fas fa-star"></i>
+                                        </button>
+                                    </form>
+                                    
+                                </div>
                                 
+                                <div>
+                                    <form action="{{ route('paymentmethod.delete', $paymentsMethod->id) }}" method="POST">
+                                        @csrf
+                                        @method("POST")
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                @endunless
                             </div>
                         </div>
                         
                     </article>
                 @endforeach
+            </div>
+        @else
+            <div class="card-body">
+                <article>
+                    <h4>No cuentas con ningun metodo de pago agregado.</h4>
+                </article>
             </div>
         @endif
     </div>
