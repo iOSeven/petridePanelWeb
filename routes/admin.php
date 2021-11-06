@@ -36,6 +36,9 @@ Route::post('/paymentmethod', [BillingController::class, 'paymentmethod'])->name
 Route::post('/deletepaymentmethod/{id}', [BillingController::class, 'deletepaymentmethod'])->name('paymentmethod.delete');
 Route::post('/defaultpaymentmethod/{id}', [BillingController::class, 'defaultpaymentmethod'])->name('paymentmethod.default');
 
+Route::get('/products/pay', [BillingController::class, 'pay'])->name('products.pay');
+Route::post('/paysingle', [BillingController::class, 'paysingle'])->name('paysingle.create');
+
 //Usuarios
 Route::resource('/usuarios', App\Http\Controllers\Admin\UsuariosController::class);
 Route::put('/update_transportadora/{id}', [App\Http\Controllers\Admin\SocioRiderController::class, 'update_transportadora'])->name('complementos.update_transportadora');

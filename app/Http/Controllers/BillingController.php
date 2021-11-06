@@ -44,4 +44,18 @@ class BillingController extends Controller
 
         return $this->index();
     }
+
+    public function pay(Request $request){
+        return view('viajes.index');
+    }
+
+    public function paysingle(Request $request){
+        $paymentMethodId = $request->paymentMethodId;
+
+        $precio = 15 * 100;
+
+        auth()->user()->charge($precio, $paymentMethodId);
+
+        return redirect('admin/products/pay')->with('success', 'La compra se realizo con exito');
+    }
 }

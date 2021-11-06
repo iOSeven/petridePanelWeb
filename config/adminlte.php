@@ -269,6 +269,11 @@ return [
             'icon'        => 'fas fa-file',
         ],
         [
+            'text'        => 'Viajes',
+            'route'       => 'products.pay',
+            'icon'        => 'fas fa-car',
+        ],
+        [
             'text'        => 'Configuración',
             'url'         => 'admin/configuracion',
             'icon'        => 'fas fa-cog',
