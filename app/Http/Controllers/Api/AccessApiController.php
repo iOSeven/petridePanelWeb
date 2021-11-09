@@ -59,7 +59,7 @@ class AccessApiController extends Controller
                                     $flag['id_user'] = $user->id;
                                     
                                     //Agregar cliente a stripe
-                                    //$user->createAsStripeCustomer();
+                                    $user->createAsStripeCustomer();
                                 } else {
                                     $flag['msg'] = "El Rol no puede venir vacio";
                                 }
