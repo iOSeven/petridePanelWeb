@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Api\AccessApiController;
 use App\Http\Controllers\Api\ChatController;
+use App\Http\Controllers\Api\CoordenadasRiderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,8 @@ Route::get('/adduser/{n}/{l1}/{l2}/{e}/{p}/{r}', [AccessApiController::class, 'a
 //Caht
 Route::get('/addmessaje/{f}/{t}/{m}', [ChatController::class, 'saveMessage']);
 //Route::middleware('auth:api')->get('/checklogin/{u}/{p}', 'ApiController\LoginApiController@checklogin');
+
+//Rider
+
+//Guardar Latitud Logintud
+Route::get('/addcurrentlocation/{i}/{la}/{lo}', [CoordenadasRiderController::class, 'addCoordenadas']);
