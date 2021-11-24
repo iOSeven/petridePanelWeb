@@ -27,10 +27,10 @@
       &copy;
       <script>
         document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-      </script>, Diseñado por 
-      <a href="#" target="_blank">PetRide</a>. Desarrollador por 
-      <a href="https://www.dgsprosolutions.mx" target="_blank">DGS Prosolutions </a>&
-      <a href="#" target="_blank"> Desarrollador</a>
+      </script>, <!--Diseñado por 
+      <a href="#" target="_blank">PetRide</a>. -->Desarrollador por 
+      <a href="https://www.dgsprosolutions.mx" target="_blank">DGS Prosolutions </a><!--&
+      <a href="#" target="_blank"> Desarrollador</a>-->
     </div>
   </div>
 </footer>
