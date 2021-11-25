@@ -52438,3 +52438,8 @@ a.text-muted:hover {
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default{
   border-radius: 50px;
 }
+
+.page-item.active .page-link {
+  background-color: #87d1e8;
+  border-color: #87d1e8;
+}

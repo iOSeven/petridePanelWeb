@@ -51,6 +51,6 @@ class User extends Authenticatable
 
     /**Metodo poara imagen en el menu derecho */
     public function adminlte_image() {
-        return 'https://pet-rideadmin.com/img/favicon.png';
+        return 'https://pet-rideadmin.com/img/icono.jpg';
     }
 }

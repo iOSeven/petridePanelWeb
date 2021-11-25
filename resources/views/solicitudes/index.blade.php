@@ -18,8 +18,8 @@
 
     @endif
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
             <h3 class="card-title">Nuevas Peticiones</h3>
         </div>
 
