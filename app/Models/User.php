@@ -48,4 +48,9 @@ class User extends Authenticatable
     public function role() {
     	return $this->belongsTo(TipoServicioModel::class, 'role_id', 'id');
     }
+
+    /**Metodo poara imagen en el menu derecho */
+    public function adminlte_image() {
+        return 'https://pet-rideadmin.com/img/favicon.png';
+    }
 }

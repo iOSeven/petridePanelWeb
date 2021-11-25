@@ -52426,3 +52426,15 @@ a.text-muted:hover {
 .layout-fixed .main-sidebar {
   background-color: #000 !important;
 }
+
+.navbar-nav > .user-menu > .dropdown-menu, .navbar-nav > .user-menu > .dropdown-menu > .user-body{
+  border-radius: 15px;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header{
+  border-radius: 15px;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default{
+  border-radius: 50px;
+}
