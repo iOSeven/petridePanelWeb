@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'use_ico_only' => false,
+    'use_ico_only' => true,
     'use_full_favicon' => false,
 
     /*
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
+    'logo' => '.',
+    'logo_img' => 'img/logo_sidebar.png',
+    'logo_img_class' => 'brand-image elevation-3 align-items-center d-flex justify-content-center',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -88,7 +88,7 @@ return [
     'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
+    'layout_dark_mode' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -150,7 +150,7 @@ return [
     'sidebar_collapse_auto_size' => false,
     'sidebar_collapse_remember' => false,
     'sidebar_collapse_remember_no_transition' => true,
-    'sidebar_scrollbar_theme' => 'os-theme-light',
+    'sidebar_scrollbar_theme' => 'skin-black',
     'sidebar_scrollbar_auto_hide' => 'l',
     'sidebar_nav_accordion' => true,
     'sidebar_nav_animation_speed' => 300,
@@ -230,11 +230,11 @@ return [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
-        ],*/
+        ],
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
-        ],
+        ],*/
 
         // Sidebar items:
         /*[
@@ -247,34 +247,34 @@ return [
             'can'  => 'manage-blog',
         ],*/
         [
-            'text'        => 'Inicio',
+            'text'        => ' INICIO',
             'url'         => 'admin/',
             'icon'        => 'fas fa-home',
         ],
         [
-            'text'        => 'Solicitudes',
+            'text'        => ' SOLICITUDES',
             'route'       => 'solicitudes.index',
             'icon'        => 'fas fa-user-plus',
             //'label'       => 4,
             //'label_color' => 'danger',
         ],
         [
-            'text'        => 'Usuarios',
+            'text'        => ' USUARIOS',
             'route'       => 'usuarios.index',
             'icon'        => 'fas fa-users',
         ],
         [
-            'text'        => 'Facturas',
+            'text'        => ' FACTURAS',
             'route'       => 'billing.index',
             'icon'        => 'fas fa-file',
         ],
         [
-            'text'        => 'Viajes',
+            'text'        => ' VIAJES',
             'route'       => 'products.pay',
             'icon'        => 'fas fa-car',
         ],
         [
-            'text'        => 'Configuración',
+            'text'        => ' CONFIGURACIÓN',
             'url'         => 'admin/configuracion',
             'icon'        => 'fas fa-cog',
         ],

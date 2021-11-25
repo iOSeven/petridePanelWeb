@@ -8,17 +8,8 @@
 
 @section('content')
 
-<div class="card">
-    <div class="card-header align-self-center">
-        <a class="btn btn-app">
-            <span class="badge bg-red">12</span>
-            <i class="fa fa-cog"></i> Administración
-        </a>
-    </div>
-
-    <div class="card-body align-items-center d-flex justify-content-center">
-        <img src="{{ asset('/img/logo.png') }}" style="width: 35%; height: 35%" alt="">
-    </div>
+<div class="row align-items-center d-flex justify-content-center">
+    <img src="{{ asset('/img/logo_home.png') }}" style="width: 70%;" alt="">
 </div>
 
 @stop
