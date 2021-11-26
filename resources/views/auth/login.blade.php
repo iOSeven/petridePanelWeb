@@ -38,7 +38,7 @@
                             <i class="fas fa-lock"></i>
                         </div>
                     </div>
-                    <input placeholder="Contraseña" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" value="secret" required>
+                    <input placeholder="Contraseña" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" required>
                 </div>
                 @if ($errors->has('password'))
                     <span class="invalid-feedback" style="display: block;" role="alert">

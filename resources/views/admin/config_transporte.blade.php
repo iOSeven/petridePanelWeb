@@ -11,17 +11,17 @@
     <div class="row">
 
         <div class="col-md-12">
-            <div class="card card-primary">
-                <div class="card-header with-border">
-                    <h3 class="card-title">Percepciones Economicas</h3>
+            <div class="card" style="border-radius: 20px">
+                <div class="card-header with-border" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
+                    <h3 class="card-title">Percepciones Económicas</h3>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4">
-                            Tipo de Socio
                             <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option selected="selected" data-select2-id="3">Alabama</option>
+                                <option selected="selected" data-select2-id="3">Tipo de Socio</option>
+                                <option data-select2-id="3">Alabama</option>
                                 <option data-select2-id="16">Alaska</option>
                                 <option data-select2-id="17">California</option>
                                 <option data-select2-id="18">Delaware</option>
@@ -32,18 +32,15 @@
                         </div>
 
                         <div class="col-md-2">
-                            Comisión Petride
-                            <input type="text" class="form-control" placeholder=".col-xs-3">
+                            <input type="text" class="form-control" placeholder="Comisión Petride">
                         </div>
                         
                         <div class="col-md-2">
-                            Costo de Ruta
-                            <input type="text" class="form-control" placeholder=".col-xs-4">
+                            <input type="text" class="form-control" placeholder="Costo de Ruta">
                         </div>
                         
                         <div class="col-md-2">
-                            Ganancia de Ruta
-                            <input type="text" class="form-control" placeholder=".col-xs-5">
+                            <input type="text" class="form-control" placeholder="Ganancia de Ruta">
                         </div>
                     </div>
                 </div>
@@ -51,52 +48,48 @@
         </div>
 
         <div class="col-md-12">
-            <div class="card card-primary">
-                <div class="card-header with-border">
+            <div class="card" style="border-radius: 20px">
+                <div class="card-header with-border" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
                     <h3 class="card-title">Desglose de Costos</h3>
                 </div>
 
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            Costo por km/m
-                            <input type="text" class="form-control" placeholder=".col-xs-3">
+                            <input type="text" class="form-control" placeholder="Costo por km/m">
                         </div>
-
                         <div class="col-md-6">
-                            Costo por Cancelación
-                            <input type="text" class="form-control" placeholder=".col-xs-4">
-                        </div>
-
-                        <div class="col-md-6">
-                            Tarifa minima por servicio Rider
-                            <input type="text" class="form-control" placeholder=".col-xs-5">
-                        </div>
-
-                        <div class="col-md-6">
-                            Costo de Cancelacion Pet Rider
-                            <input type="text" class="form-control" placeholder=".col-xs-5">
-                        </div>
-
-                        <div class="col-md-6">
-                            Tarifa minima de servicio Cancelado
-                            <input type="text" class="form-control" placeholder=".col-xs-5">
-                        </div>
-
-                        <div class="col-md-6">
-                            Precio por Kilometro Hora Pico
-                            <input type="text" class="form-control" placeholder=".col-xs-5">
+                            <input type="text" class="form-control" placeholder="Costo por Cancelación">
                         </div>
                     </div>
-            
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Tarifa minima por servicio Rider">
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Costo de Cancelacion Pet Rider">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Tarifa minima de servicio Cancelado">
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Precio por Kilometro Hora Pico">
+                        </div>
+                    </div>
+                
                     <div class="row">
                         <div class="col-md-6 align-self-center align-items-center d-flex justify-content-center">
-                        Precio por Kilometro Hora No Pico
+                            <input type="text" class="form-control" placeholder="Precio por Kilometro Hora No Pico">
+                        </div>
                     </div>
 
-                    <div class="col-md-2 align-self-center align-items-center d-flex justify-content-center">
-                        <input type="text" class="form-control" placeholder=".col-xs-2">
-                    </div>
+                    
                 </div>
             </div>
         </div>

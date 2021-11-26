@@ -10,153 +10,163 @@
 
 <div class="row">
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <a href="{{ asset('/admin/config/transporte') }}" class="align-items-center d-flex justify-content-center">
-                    <img src="{{ asset('/img/config/transporte.png') }}" style="width: 25%;" alt="">
-                </a>
+        <a href="{{ asset('/admin/config/transporte') }}" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/transporte.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>TRANSPORTE</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Transporte
-            </div>
-        </div>
+        </a>
     </div>
     
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/paseo.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/paseo.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>PASEO</h2>
+                    </div>
+                </div>  
             </div>
-
-            <div class="card-footer align-self-center">
-                Paseo
-            </div>
-        </div>
+        </a>
     </div>
 
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/hospedaje.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/hospedaje.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>HOSPEDAJE</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Hospedaje
-            </div>
-        </div>
+        </a>
     </div>
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/entrenamiento.png') }}" style="width: 25%;" alt="">
+    <div class="col-md-3" style="height:200px">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/entrenamiento.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>ENTRENAMIENTO</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Entrenamiento
-            </div>
-        </div>
+        </a>
     </div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-top: 15px;">
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/veterinaria.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/veterinaria.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>ATENCIÓN MÉDICA</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Atención Médica
-            </div>
-        </div>
+        </a>
     </div>
     
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/estetica.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/estetica.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>ATENCIÓN ESTÉTICA</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Atención Estetica
-            </div>
-        </div>
+        </a>
     </div>
 
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/denuncia.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/denuncia.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>DENUNCIA</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Denuncia
-            </div>
-        </div>
+        </a>
     </div>
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/rescate.png') }}" style="width: 25%;" alt="">
+    <div class="col-md-3" style="height: 200px">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/rescate.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>RESCATE</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Rescate
-            </div>
-        </div>
+        </a>
     </div>
 </div>
 
-<div class="row">
+<div class="row" style="margin-top: 15px;">
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/adopcion.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/adopcion.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>ADOPCIÓN</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Adopción
-            </div>
-        </div>
+        </a>
     </div>
     
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/tienda.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/tienda.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>TIENDA</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Tienda
-            </div>
-        </div>
+        </a>
     </div>
 
     <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/blog.png') }}" style="width: 25%;" alt="">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/blog.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>BLOG</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Blog
-            </div>
-        </div>
+        </a>
     </div>
 
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-body align-items-center d-flex justify-content-center">
-                <img src="{{ asset('/img/config/facturacion.png') }}" style="width: 25%;" alt="">
+    <div class="col-md-3" style="height: 200px">
+        <a href="#" style="color: #fff;">
+            <div class="card" 
+                style="background-image: url('../img/config/facturacion.jpg'); background-size: cover; align-items: center; height: 100%">
+                <div class="card-body" style="display: flex; justify-content: center; align-items: flex-end">
+                    <div>
+                        <h2>FACTURACIÓN</h2>
+                    </div>
+                </div>
             </div>
-
-            <div class="card-footer align-self-center">
-                Facturación
-            </div>
-        </div>
+        </a>
     </div>
 </div>
 

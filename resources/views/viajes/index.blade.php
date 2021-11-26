@@ -18,47 +18,61 @@
 
     @endif
 
-    <div class="card">
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
+            <h3 class="card-title">Viajes</h3>
+        </div>
+
         <div class="card-body">
             <div class="row">
-                <article class="col-md-7">
-                    <div class="row justify-between items-center self-start flex-1">
-                        <img src="{{ asset('/img/config/transporte.png') }}" style="width:25%;" alt="">
-                        <h4>Viaje</h4>
-                        <p>Precio $20MXN</p>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-center">
+                            <h3 class="card-title">Información de la Tarjeta.</h3>
+                        </div>
+
+                        <form action="{{ route('paysingle.create') }}" method="post" id="cardForm">
+
+                            <div class="card-body">
+                                
+                                    @csrf  
+                                    <div class="form-group">
+                                        <input class="form-control" id="card-holder-name" type="text" placeholder="Ingrese el nombre del titular" required>
+                                        <span id="cardErrors"></span>
+                                    </div>
+                                    
+                                    <!-- Stripe Elements Placeholder -->
+                                    <div class="form-group">
+                                        <div class="form-control" id="card-element"></div>
+                                    </div>
+                                    
+                            </div>
+                            
+                            <div class="card-footer" style="display: flex; justify-content: flex-end">
+                                <button class="btn" style="color: #000; background-color: #87d1e6;" id="card-button">
+                                    Procesar pago
+                                </button>
+                            </div>
+                        </form>
+                            
+                        
+                    </div>
+                </div>
+
+                <article class="col-md-6">
+                    <h4 class="d-flex justify-content-center">Información del Viaje</h4>
+                    <div class="row d-flex justify-content-center">
+                        <img src="{{ asset('/img/tarjeta_de_credito.png') }}" style="width:35%;" alt="">
                     </div>
 
                     <hr>
-
-                    <p>sdkjfhsdkjfhsdkjfhskjdhfksdhfjkhsjkdhfshfkhsdkfhsdfhskjh</p>
+                    <p>Precio: $20MXN</p>
+                    <p>Descripción:</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis magna at dui vulputate mattis. Nulla facilisi. Vivamus finibus arcu vitae aliquet lobortis.</p>
                 </article>
 
-                <div class="col-md-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="{{ route('paysingle.create') }}" method="post" id="cardForm">
-                                @csrf  
-                                <div class="form-group">
-                                    <label for="">Nombre de la Tarjeta</label>
-                                    <input class="form-control" id="card-holder-name" type="text" placeholder="Ingrese el nombre del titular" required>
-                                    <span id="cardErrors"></span>
-                                </div>
-                                
-                                <!-- Stripe Elements Placeholder -->
-                                <div class="form-group">
-                                    <label for="">Numero de la Tarjeta</label>
-                                    <div class="form-control" id="card-element"></div>
-                                </div>
-                                
 
-                                <button class="btn btn-primary" id="card-button">
-                                    Process Payment
-                                </button>
-                            </form>
-                            
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

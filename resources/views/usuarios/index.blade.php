@@ -19,8 +19,8 @@
     @endif
 
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
             <h3 class="card-title">Usuarios Socios</h3>
         </div>
         
@@ -67,8 +67,8 @@
 
 
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
             <h3 class="card-title">Usuarios del Sistema</h3>
         </div>
 
@@ -115,8 +115,8 @@
     </div>
 
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
             <h3 class="card-title">Clientes del Sistema</h3>
         </div>
 

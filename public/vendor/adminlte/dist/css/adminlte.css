@@ -5148,7 +5148,7 @@ input[type="button"].btn-block {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
+  /*background-color: rgba(0, 0, 0, 0.03);*/
   border-top: 0 solid rgba(0, 0, 0, 0.125);
 }
 
@@ -52442,4 +52442,8 @@ a.text-muted:hover {
 .page-item.active .page-link {
   background-color: #87d1e8;
   border-color: #87d1e8;
+}
+
+.row{
+  margin-top: 1rem;
 }

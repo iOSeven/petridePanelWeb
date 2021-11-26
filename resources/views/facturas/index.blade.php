@@ -18,8 +18,8 @@
 
     @endif
 
-    <div class="card">
-        <div class="card-header">
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
             <h3 class="card-title">Facturas</h3>
         </div>
 
@@ -30,28 +30,35 @@
                     @csrf  
                     <div class="card-body">
 
-                        <h1>Agregar metodo de pago</h1>
-
                         <div class="row">
-                            <p>Informacion de tarjeta</p>
+                            
                             <div class="col-md-6">
+                                <h5>Agregar metodo de pago</h5>
+                                <p>Informacion de tarjeta</p>
+
                                 <div class="form-group row">
                                     <input class="form-control" id="card-holder-name" type="text" placeholder="Nombre del titular" required>
                                 </div>
                                 
                                 <!-- Stripe Elements Placeholder -->
-                                <div>
+                                <div class="form-group row">
                                     <div class="form-control" id="card-element"></div>
                                     <span id="cardErrors"></span>
                                 </div>
                                 
                             </div>
+
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <img src="{{ asset('img/tarjeta_de_credito.png') }}" alt="tarjeta_de_credito" style="width: 35%;">
+                            </div>
                         </div>
                     </div>
-                    <div class="card-footer bd-gray justify-end">
-                        <button class="btn btn-primary" id="card-button" data-secret="{{ $intent->client_secret }}">
-                            Update Payment Method
-                        </button>
+                    <div class="card-footer" style="display: flex; justify-content: flex-end">
+                        <div class="col-md-3">
+                            <button class="btn btn-block" id="card-button" style="color: #000; background-color: #87d1e6;" data-secret="{{ $intent->client_secret }}">
+                                Agregar
+                            </button>
+                        </div>
                     </div>
                 
                 </form>
@@ -60,27 +67,29 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="bg-gray-50">
-            <h1>Metodos de pago agregados</h1>
+    <div class="card" style="border-radius: 20px">
+        <div class="card-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
+            <h3 class="card-title">Métodos de pago agregados.</h3>
         </div>
         @if(!empty($paymentsMethods))
             <div class="card-body">
                 @foreach($paymentsMethods as $paymentsMethod)
-                    <article class="text-sm text-gray">
-                        <div class="d-flex justify-content-between">
+                    <div class="card text-sm text-gray col-md-8" style="background-color: #87d1e6;">
+                        <div class="card-body">
                             <div>
                                 <h5>
-                                    <span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> xxxx-{{ $paymentsMethod->card->last4 }}
+                                    Nombre del Títular: <span class="font-bold">{{ $paymentsMethod->billing_details->name }}</span> 
+                                    
                                     @if($paymentsMethod->id == auth()->user()->defaultPaymentMethod()->id)
                                         (Default)
                                     @endif
                                 </h1>
+                                Tarjeta con terminación: <span class="font-bold">xxxx-{{ $paymentsMethod->card->last4 }}</span>
 
                                 <p>Expira {{ $paymentsMethod->card->exp_month}} / {{ $paymentsMethod->card->exp_year}}</p>
                             </div>
 
-                            <div class="row">
+                            <div class="row d-flex justify-content-end">
                                 @unless($paymentsMethod->id == auth()->user()->defaultPaymentMethod()->id)
                                 <div>
                                     <form action="{{ route('paymentmethod.default', $paymentsMethod->id) }}" method="POST">
@@ -106,7 +115,7 @@
                             </div>
                         </div>
                         
-                    </article>
+                    </div>
                 @endforeach
             </div>
         @else
