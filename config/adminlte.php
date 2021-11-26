@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '',
-    'logo_img' => 'img/favicon.png',
+    'logo' => 'P',
+    'logo_img' => '',
     'logo_img_class' => 'brand-image elevation-3 align-items-center d-flex justify-content-center',
     'logo_img_xl' => 'img/logo_sidebar.png',
     'logo_img_xl_class' => 'brand-image-xs',
