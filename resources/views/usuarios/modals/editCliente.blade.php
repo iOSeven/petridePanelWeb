@@ -1,10 +1,10 @@
 <div class="modal fade" id="modal-defaultCliente{{ $cliente->id }}" style="display: none;" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">SOLICITID No. <label id="numero" name="numero">{{ $cliente->id }}</label></h4>
-                <button type="button" class="close bg-red" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
+        <div class="modal-content" style="border-radius: 20px">
+            <div class="modal-header" style="color: #000; background-color: #ffd040; border-top-right-radius:20px; border-top-left-radius:20px">
+                <h5 class="modal-title">Editar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #000">
+                    <span aria-hidden="true">X</span>
                 </button>
             </div>
 
@@ -14,47 +14,36 @@
                     @csrf
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="name" type="text" value="{{ $cliente->name }}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <div class="col-md-12">
+                            <input id="name" type="text" style="text-align: center;" placeholder="Nombre" value="{{ $cliente->name }}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lastname1') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="lastname1" type="text" value="{{ $cliente->lastname1 }}" class="form-control @error('lastname1') is-invalid @enderror" name="lastname1" value="{{ old('lastname1') }}" required autocomplete="lastname1" autofocus>
+                        <div class="col-md-12">
+                            <input id="lastname1" type="text" style="text-align: center;" placeholder="Apellido Paterno" value="{{ $cliente->lastname1 }}" class="form-control @error('lastname1') is-invalid @enderror" name="lastname1" value="{{ old('lastname1') }}" required autocomplete="lastname1" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Lastname2') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="lastname2" type="text" value="{{ $cliente->lastname2 }}" class="form-control @error('lastname2') is-invalid @enderror" name="lastname2" value="{{ old('lastname2') }}" required autocomplete="lastname2" autofocus>
+                        <div class="col-md-12">
+                            <input id="lastname2" type="text" style="text-align: center;" placeholder="Apellido Materno" value="{{ $cliente->lastname2 }}" class="form-control @error('lastname2') is-invalid @enderror" name="lastname2" value="{{ old('lastname2') }}" required autocomplete="lastname2" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="email" type="email" value="{{ $cliente->email }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                        <div class="col-md-12">
+                            <input id="email" type="email" style="text-align: center;" placeholder="Correo" value="{{ $cliente->email }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                        <div class="col-md-12">
+                            <input id="password" type="password" style="text-align: center;" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password">
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="tipo" class="col-md-4 col-form-label text-md-right">{{ __('Tipo') }}</label>
                         <div class="col-md-6">
                             <select class="form-control" id="tipo" name="tipo" required>
                                 <option value="">Seleccione tipo de servicio</option>
@@ -63,10 +52,7 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
-                        <label for="estatus" class="col-md-4 col-form-label text-md-right">{{ __('Estatus') }}</label>
                         <div class="col-md-6">
                             <select class="form-control" id="estatus" name="estatus" required>
                                 <option value="">Seleccione tipo de estatus</option>
@@ -80,7 +66,7 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             {{ method_field('PUT') }}
-                            <button type="submit" class="btn btn-success">
+                            <button type="submit" class="btn btn-lg" style="background-color: #87d1e6">
                                 {{ __('Actualizar') }}
                             </button>
                         </div>

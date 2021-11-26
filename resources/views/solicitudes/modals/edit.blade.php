@@ -15,32 +15,32 @@
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input id="name" type="text" placeholder="Nombre" value="{{ $solicitud->name }}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            <input id="name" type="text" style="text-align: center;" placeholder="Nombre" value="{{ $solicitud->name }}" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
 
                         <div class="col-md-12">
-                            <input id="lastname1" type="text" placeholder="Apellido Paterno" value="{{ $solicitud->lastname1 }}" class="form-control @error('lastname1') is-invalid @enderror" name="lastname1" value="{{ old('lastname1') }}" required autocomplete="lastname1" autofocus>
+                            <input id="lastname1" type="text" style="text-align: center;" placeholder="Apellido Paterno" value="{{ $solicitud->lastname1 }}" class="form-control @error('lastname1') is-invalid @enderror" name="lastname1" value="{{ old('lastname1') }}" required autocomplete="lastname1" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input id="lastname2" type="text" placeholder="Apellido Materno" value="{{ $solicitud->lastname2 }}" class="form-control @error('lastname2') is-invalid @enderror" name="lastname2" value="{{ old('lastname2') }}" required autocomplete="lastname2" autofocus>
+                            <input id="lastname2" type="text" style="text-align: center;" placeholder="Apellido Materno" value="{{ $solicitud->lastname2 }}" class="form-control @error('lastname2') is-invalid @enderror" name="lastname2" value="{{ old('lastname2') }}" required autocomplete="lastname2" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input id="email" type="email" placeholder="Correo" value="{{ $solicitud->email }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                            <input id="email" type="email" style="text-align: center;" placeholder="Correo" value="{{ $solicitud->email }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input id="password" type="password" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password">
+                            <input id="password" type="password" style="text-align: center;" placeholder="Contraseña" class="form-control @error('password') is-invalid @enderror" name="password">
                         </div>
                     </div>
 
