@@ -84,4 +84,23 @@ class AccessApiController extends Controller
 
         return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
     }
+
+    public function authUser($id=null){
+        if(!empty($id) && !is_null($id)) {
+            $user = User::where('id', $id)->first();
+            if(!is_null($user)) {
+                $flag['status'] = true;
+                $flag['msg'] = "Usuario Valido";
+                $flag['id_user'] = $user->id;
+                $flag['role_id'] = $user->role->name;
+                $flag['email'] = $user->email;
+            } else {
+                $flag['msg'] = "El usuario no existe";
+            }
+        } else {
+            $flag['msg'] = "El usuario no existe";
+        }
+
+        return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
+    }
 }
