@@ -55,7 +55,7 @@ class AccessApiController extends Controller
                                         'lastname2' => $lastname2,
                                         'email' => $email,
                                         'password' => Hash::make($pass),
-                                        'id_role' => $role,
+                                        'role_id' => $role,
                                     ]);
                                     
                                     $flag['status'] = true;
