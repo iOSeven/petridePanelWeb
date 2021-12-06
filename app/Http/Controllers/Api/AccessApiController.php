@@ -23,15 +23,19 @@ class AccessApiController extends Controller
                         $flag['role_id'] = $user->role->name;
                     } else {
                         $flag['msg'] = "El correo o password no son correctos";
+                        return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                     }
                 } else {
                     $flag['msg'] = "El usuario no existe";
+                    return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                 }
             } else {
                 $flag['msg'] = "El password no puede venir vacio";
+                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
             }
         } else {
             $flag['msg'] = "El correo no puede venir vacio";
+            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
         }
         return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
     }
@@ -101,9 +105,11 @@ class AccessApiController extends Controller
                 $flag['email'] = $user->email;
             } else {
                 $flag['msg'] = "El usuario no existe";
+                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
             }
         } else {
             $flag['msg'] = "El usuario no existe";
+            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
         }
 
         return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
