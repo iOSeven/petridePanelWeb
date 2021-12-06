@@ -68,18 +68,23 @@ class AccessApiController extends Controller
                             }
                         } else {
                             $flag['msg'] = "El email ya se encuentra registrado";
+                            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                         }
                     } else {
                         $flag['msg'] = "El email no puede venir vacio";
+                        return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                     }
                 } else {
                     $flag['msg'] = "El apellido materno no puede venir vacio";
+                    return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                 }
             } else {
                 $flag['msg'] = "El apellido paterno no puede venir vacio";
+                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
             }
         } else {
             $flag['msg'] = "El nombre no puede venir vacio";
+            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
         }
 
         return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
