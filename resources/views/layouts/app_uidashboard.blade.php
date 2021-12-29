@@ -23,9 +23,6 @@
 
 <body class="{{ $class ?? '' }}">
   <div class="wrapper">
-    @auth
-      @include('layouts.page_template.auth')
-    @endauth
     @guest
       @include('layouts.page_template.guest')
     @endguest
