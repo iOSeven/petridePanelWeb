@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\socioRider;
+use App\Models\Transportadoras;
 use Illuminate\Support\Facades\Hash;
 
 class AccessApiController extends Controller
@@ -61,6 +63,14 @@ class AccessApiController extends Controller
                                     $flag['status'] = true;
                                     $flag['msg'] = "Usuario Agregado";
                                     $flag['id_user'] = $user->id;
+
+                                    $user_data = socioRider::create([
+                                        'user_id' => $user->id,
+                                    ]);
+                            
+                                    $user_transportadora = Transportadoras::create([
+                                        'user_id' => $user->id,
+                                    ]);
                                     
                                     //Agregar cliente a stripe
                                     $user->createAsStripeCustomer();
