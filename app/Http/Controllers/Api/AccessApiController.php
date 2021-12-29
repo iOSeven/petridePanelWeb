@@ -76,9 +76,11 @@ class AccessApiController extends Controller
                                     $user->createAsStripeCustomer();
                                 } else {
                                     $flag['msg'] = "El Rol no puede venir vacio";
+                                    return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                                 }
                             } else {
                                 $flag['msg'] = "El passwod no puede venir vacio";
+                                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                             }
                         } else {
                             $flag['msg'] = "El email ya se encuentra registrado";

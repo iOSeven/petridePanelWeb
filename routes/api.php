@@ -38,6 +38,7 @@ Route::get('/addmessaje/{f}/{t}/{m}', [ChatController::class, 'saveMessage']);
 
 //Guardar Latitud Logintud
 Route::get('/addcurrentlocation/{i}/{la}/{lo}', [CoordenadasRiderController::class, 'addCoordenadas']);
+Route::get('/newtravel/{i}/{ls}/{los}/{le}/{loe}/{d}/{h}', [CoordenadasRiderController::class, 'newTravel']);
 
 //Pets
 Route::get('/addnewpet/{u}/{n}/{s}/{t}', [PetController::class, 'saveNewPet']);
