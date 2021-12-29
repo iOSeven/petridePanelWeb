@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AccessApiController;
 use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\CoordenadasRiderController;
+use App\Http\Controllers\Api\PetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,6 @@ Route::get('/addmessaje/{f}/{t}/{m}', [ChatController::class, 'saveMessage']);
 
 //Guardar Latitud Logintud
 Route::get('/addcurrentlocation/{i}/{la}/{lo}', [CoordenadasRiderController::class, 'addCoordenadas']);
+
+//Pets
+Route::get('/addnewpet/{u}/{n}/{s}/{t}', [PetController::class, 'saveNewPet']);

@@ -28,24 +28,31 @@ class ChatController extends Controller
                                 if($chat){
                                     $flag['status'] = true;
                                     $flag['msg'] = "Mensaje guardado correctamente.";
+                                    return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                                 }
                             } else {
                                 $flag['msg'] = "El usuario <de> y <para> no pueden ser iguales";
+                                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                             }
                         } else {
                             $flag['msg'] = "El usuario <para> no existe";
+                            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                         }
                     } else {
                         $flag['msg'] = "El usuario <de> no existe";
+                        return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                     }
                 } else {
                     $flag['msg'] = "El parametro <mensaje> no puede estar vacio";
+                    return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                 }
             } else {
                 $flag['msg'] = "El parametro <para> no puede estar vacio";
+                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
             }
         }else {
             $flag['msg'] = "El parametro <de> no puede estar vacio";
+            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
         }
 
         return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);

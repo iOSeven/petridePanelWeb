@@ -22,15 +22,19 @@ class CoordenadasRiderController extends Controller
                     if($location){
                         $flag['status'] = true;
                         $flag['msg'] = "Locacion guardada correctamente.";
+                        return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                     }
                 } else {
                     $flag['msg'] = "El parametro <longitud> no puede estar vacio";
+                    return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
                 }
             } else {
                 $flag['msg'] = "El parametro <latitud> no puede estar vacio";
+                return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
             }
         } else {
             $flag['msg'] = "El parametro <user> no puede estar vacio";
+            return \Response::json(['success' => $flag], 400, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
         }
 
         return \Response::json(['success' => $flag], 200, ['Content-Type' => 'application/json;charset=utf8'], JSON_UNESCAPED_UNICODE);
