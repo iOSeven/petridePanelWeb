@@ -10,8 +10,8 @@ class CoordenadasRider extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'rider_id',
         'latitud',
-        'longitud',           
+        'longitud',        
     ];
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\AccessApiController;
 use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\CoordenadasRiderController;
 use App\Http\Controllers\Api\PetController;
+use App\Http\Controllers\Api\TravelModelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,9 @@ Route::get('/addmessaje/{f}/{t}/{m}', [ChatController::class, 'saveMessage']);
 
 //Guardar Latitud Logintud
 Route::get('/addcurrentlocation/{i}/{la}/{lo}', [CoordenadasRiderController::class, 'addCoordenadas']);
-Route::get('/newtravel/{i}/{ls}/{los}/{le}/{loe}/{d}/{h}', [CoordenadasRiderController::class, 'newTravel']);
+Route::get('/newtravel/{u}/{r}/{las}/{los}/{lae}/{loe}/{d}/{h}/{i}/{f}', [TravelModelController::class, 'newTravel']);
+Route::get('/mytravels/{u}/{ds}/{de}', [TravelModelController::class, 'myTravels']);
+Route::get('/mylasttravels/{u}', [TravelModelController::class, 'myLastTravels']);
 
 //Pets
-Route::get('/addnewpet/{u}/{n}/{s}/{t}', [PetController::class, 'saveNewPet']);
+Route::get('/addnewpet/{u}/{r}/{s}/{t}', [PetController::class, 'saveNewPet']);

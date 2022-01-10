@@ -15,7 +15,7 @@ class CreateCoordenadasRidersTable extends Migration
     {
         Schema::create('coordenadas_riders', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('rider_id');
             $table->string('latitud');
             $table->string('longitud');
             $table->timestamps();
